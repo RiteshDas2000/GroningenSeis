@@ -1,4 +1,4 @@
-# Forecasting earthquakes in Groningen
+# Forecasting seismic activity in Groningen and the effect of gas extraction
 
 Gas production from the Groningen field caused thousands of small earthquakes. This project forecasts how many M ≥ 1.5 earthquakes will happen next month, using past earthquake counts and gas production. It compares a neural network with Poisson regression and a simple baseline.
 
