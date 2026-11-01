@@ -25,7 +25,7 @@ def load_production(path):
     """Groningen production per gas year (Oct-Sep) -> monthly series in bcm per month.
 
     One row per gas year, e.g. "'12 - '13" = Oct 2012 to Sep 2013. The values are
-    in thousands of Nm3 (53 million = 53 bcm in the record year 2012-13). Only
+    in thousands of Nm3 (53 million = 53 bcm in the year 2012-13). Only
     yearly totals exist, so each year is spread evenly over its 12 months.
     """
     df = pd.read_csv(path)
