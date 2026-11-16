@@ -100,6 +100,17 @@ quakes/plots.py   the three figures
 tests/            a few checks (counts, no future data in inputs, production units, early stopping)
 ```
 
+## Databricks version
+
+[`databricks/groningen_databricks.ipynb`](databricks/groningen_databricks.ipynb) runs the same pipeline on Databricks, the way a production data team would build it:
+
+- **Bronze, silver and gold Delta tables** for the raw, cleaned and model-ready data, so every number can be traced back to its source
+- **8 automated data quality checks** (unique events, valid magnitudes, no future dates, no missing gas years), stored in a results table; the run stops if a critical check fails
+- **Feature table built in Spark SQL** with a calendar of all months, left joins, `LAG()` and rolling window functions, using only past months so no future data leaks into the features
+- **Same result as the Python version:** on the test years, Poisson regression beats the baseline (MSE 0.70 vs 0.73)
+
+To run it: import the notebook into Databricks (Free Edition works), run the first cell, upload the two files from `data/` to the `groningen.raw` volume, then click Run all.
+
 ## Note
 
 I used Claude (Anthropic) as an assistant for parts of the code and this README.
